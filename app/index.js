@@ -4,10 +4,9 @@ const _s = require('underscore.string')
 
 module.exports = yeoman.Base.extend({
   init () {
-    const cb = this.async()
     const self = this
 
-    this.prompt([{
+    return this.prompt([{
       name: 'moduleName',
       message: 'What do you want to name your module?',
       default: this.appname.replace(/\s/g, '-'),
@@ -83,7 +82,7 @@ module.exports = yeoman.Base.extend({
       message: 'Who is the License holder (probably your name)?',
       type: 'input',
       validate: x => x.length !== 0 ? true : 'You must attribute the license to someone.'
-    }], props => {
+    }]).then(props => {
       const tpl = {
         API: props.API,
         background: props.background,
@@ -105,8 +104,6 @@ module.exports = yeoman.Base.extend({
       self.fs.copyTpl([
         `${self.templatePath()}/README.md`
       ], self.destinationPath(), tpl)
-
-      cb()
     })
   },
   git () {},
