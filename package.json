@@ -17,6 +17,9 @@
   "bin": {
     "standard-readme": "app/bin.js"
   },
+  "files": [
+    "app"
+  ],
   "scripts": {
     "lint": "standard",
     "test": "standard && ava"
