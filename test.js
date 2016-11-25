@@ -12,6 +12,12 @@ test.beforeEach(async () => {
   generator = helpers.createGenerator('standard-readme:app', ['../app'], null, {skipInstall: true})
 })
 
+test.afterEach(async () => {
+  fs.unlink(path.join(__dirname, 'temp', 'README.md'))
+  // await pify(helpers.testDirectory)(path.join(__dirname, 'temp'))
+  // generator = helpers.createGenerator('standard-readme:app', ['../app'], null, {skipInstall: true})
+})
+
 test.cb('generates file', t => {
   helpers.mockPrompt(generator)
 
