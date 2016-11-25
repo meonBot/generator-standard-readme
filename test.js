@@ -33,7 +33,6 @@ test.cb('generates file', t => {
     t.pass()
     t.end()
   })
-
 })
 
 test.cb('generates minimal file', t => {
@@ -57,7 +56,7 @@ test.cb('generates minimal file', t => {
 
   generator.run((err, data) => {
     if (err) {
-      console.log("hi", err)
+      console.log('hi', err)
     }
 
     t.is(fs.readFileSync('README.md').toString(), fs.readFileSync('../examples/default-readme.md').toString())
@@ -65,9 +64,7 @@ test.cb('generates minimal file', t => {
     t.pass()
     t.end()
   })
-
 })
-
 
 test.cb('generates maximal file', t => {
   helpers.mockPrompt(generator, {
@@ -90,7 +87,7 @@ test.cb('generates maximal file', t => {
 
   generator.run((err, data) => {
     if (err) {
-      console.log("hi", err)
+      console.log('hi', err)
     }
 
     t.is(fs.readFileSync('README.md').toString(), fs.readFileSync('../examples/maximal-readme.md').toString())
@@ -98,5 +95,4 @@ test.cb('generates maximal file', t => {
     t.pass()
     t.end()
   })
-
 })
